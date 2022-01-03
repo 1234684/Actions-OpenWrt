@@ -1,24 +1,3 @@
-Skip to content
-breakings
-/
-OpenWrt
-Public
-generated from breakings/Actions-OpenWrt
-Code
-Issues
-5
-Pull requests
-1
-Actions
-Projects
-Wiki
-Security
-Insights
-OpenWrt/diy-part2.sh
-@breakings
-breakings update config
- 2 contributors
-Executable File  660 lines (536 sloc)  41.7 KB
 #!/bin/bash
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
