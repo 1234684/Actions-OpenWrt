@@ -131,8 +131,9 @@
  ​svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-core package/v2ray-core 
  ​svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin 
  ​svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core 
- ​svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin 
-  
+ ​svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
+ ​svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata 
+ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks  
  ​#​git clone https://github.com/semigodking/redsocks.git package/redsocks2 #redsocks 修改版REDSOCKS2，与lean重复 
   
  ​#​ 添加argon-config 最新argon v1.x.x 适配18.06和Lean Openwrt 
