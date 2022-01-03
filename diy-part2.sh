@@ -28,6 +28,8 @@
  ​#​ 修改应用位置 
  ​sed -i ​'​s/services/vpn/g​'​ feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua ​#​OpenConnect VPN-->VPN 
   
+ ​#​ luci-app-openvpn 
+ ​sed -i ​'​s/services/vpn/g​'​  feeds/luci/applications/luci-app-openvpn/luasrc/controller/openvpn.lua  
  ​#​ 临时错误修复 
   
   
@@ -41,18 +43,16 @@
  ​#​rm -rf feeds/packages/net/kcptun 
   
  ​#​ 添加额外软件包 
- ​git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter 
- ​git clone https://github.com/linkease/nas-packages.git package/nas 
- ​git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci 
- ​git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced 
- ​git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset 
+ #​git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter 
+ #​git clone https://github.com/linkease/nas-packages.git package/nas 
+ #​git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci 
+ #​git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced 
+ ​#git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset 
  ​git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata ​#​lean中包含,修改中文 
  ​git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome 
  ​git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy 
  ​svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus package/luci-app-wolplus 
- ​#​svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser 
- ​svn co https://github.com/xiaozhuai/luci-app-filebrowser/branches/18.06 package/luci-app-filebrowser ​#​lienol源码改进而来 
- ​sed -i ​'​s/services/nas/g​'​ package/luci-app-filebrowser/luasrc/controller/filebrowser.lua ​#​文件浏览器-->网络存储 
+ ​​svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser ​#​文件浏览器-->网络存储 
  ​svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server 
  ​svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-pptp-server package/luci-app-pptp-server ​#​lean中包含 
  ​svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat 
@@ -81,15 +81,12 @@
  ​#​ Amlogic Service 
  ​svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic 
  ​#​ Modify the default configuration of Amlogic Box 
- ​#​ 1.Set the download repository of the OpenWrt files to your github.com（OpenWrt 文件的下载仓库） 
- ​sed -i ​"​s|https.*/OpenWrt|https://github.com/rq1025330/Actions-OpenWrt|g​"​ package/luci-app-amlogic/root/etc/config/amlogic 
- ​#​ 2.Set the keywords of Tags in your github.com Releases（Releases 里 Tags 的关键字） 
- ​#​sed -i "s|ARMv8|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic 
- ​#​ 3.Set the suffix of the OPENWRT files in your github.com Releases（Releases 里 OpenWrt 文件的后缀） 
- ​#​sed -i "s|.img.gz|.img.gz|g" package/luci-app-amlogic/root/etc/config/amlogic 
- ​#​ 4.Set the download path of the kernel in your github.com repository（OpenWrt 内核的下载路径） 
- ​sed -i ​"​s|opt/kernel|BuildARMv8|g​"​ package/luci-app-amlogic/root/etc/config/amlogic 
   
+ ​#​ 晶晨宝盒 
+ ​sed -i ​"​s|https.*/amlogic-s9xxx-openwrt|https://github.com/breakings/OpenWrt|g​"​ package/luci-app-amlogic/root/etc/config/amlogic 
+ ​sed -i ​"​s|http.*/library|https://github.com/breakings/OpenWrt/opt/kernel|g​"​ package/luci-app-amlogic/root/etc/config/amlogic 
+ ​sed -i ​"​s|s9xxx_lede|ARMv8|g​"​ package/luci-app-amlogic/root/etc/config/amlogic 
+ ​#​sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic  
  ​svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash 
  ​#​ 编译 po2lmo (如果有po2lmo可跳过) 
  ​#​pushd package/luci-app-openclash/tools/po2lmo 
@@ -142,7 +139,18 @@
  ​git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config 
  ​svn co https://github.com/jerrykuku/luci-theme-argon/branches/18.06 package/luci-theme-argon 
   
- ​#​ 添加themes 
+  
+ ​#​ mac80211 
+ ​rm -rf package/kernel/mac80211 
+ ​svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/mac80211 package/kernel/mac80211
+  
+ ​#​ nfs-kernel-server 
+ ​rm -rf feeds/packages/net/nfs-kernel-server 
+ ​svn co https://github.com/openwrt/packages/trunk/net/nfs-kernel-server feeds/packages/net/nfs-kernel-server
+​  
+ ​#​ openssh 
+ ​sed -i ​'​175i\        --with-sandbox=rlimit \\​'​ feeds/packages/net/openssh/Makefile
+#​ 添加themes 
  ​svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new 
  ​svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge 
  ​svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit 
