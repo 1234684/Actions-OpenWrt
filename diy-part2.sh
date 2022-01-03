@@ -91,9 +91,9 @@ sed -i ​"​s|http.*/library|https://github.com/breakings/OpenWrt/opt/kernel
 ​#​sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic  
 ​svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash 
 ​#​ 编译 po2lmo (如果有po2lmo可跳过) 
-​#​pushd package/luci-app-openclash/tools/po2lmo 
-​#​make && sudo make install 
-#​popd 
+​​pushd package/luci-app-openclash/tools/po2lmo 
+​make && sudo make install 
+​popd 
   
 #​ 添加vssr&ssr-plus&passwall 
 ​git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr 
