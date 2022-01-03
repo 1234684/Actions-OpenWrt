@@ -1,3 +1,24 @@
+Skip to content
+breakings
+/
+OpenWrt
+Public
+generated from breakings/Actions-OpenWrt
+Code
+Issues
+5
+Pull requests
+1
+Actions
+Projects
+Wiki
+Security
+Insights
+OpenWrt/diy-part2.sh
+@breakings
+breakings update config
+ 2 contributors
+Executable File  660 lines (536 sloc)  41.7 KB
 #!/bin/bash
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
@@ -55,6 +76,7 @@ svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/lu
 #svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/breakings/OpenWrt/trunk/general/gnupg feeds/packages/utils/gnupg
 #svn co https://github.com/breakings/OpenWrt/trunk/general/n2n_v2 package/lean/n2n_v2
+svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus package/luci-app-wolplus
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
@@ -136,15 +158,18 @@ sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b536
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #themes
-svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
-#git clone https://github.com/rosywrt/luci-theme-purple.git package/luci-theme-purple
-#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-theme-opentomcat
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+svn co https://github.com/jerrykuku/luci-theme-argon/branches/18.06 package/luci-theme-argon
+
+# 添加themes
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-theme-opentomato
-#svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
-#git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
-#svn co https://github.com/kevin-morgan/luci-theme-argon-dark/trunk package/luci-theme-argon-dark
-#svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
+svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-theme-opentomcat
+svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
+svn co https://github.com/apollo-ng/luci-theme-darkmatter/trunk/luci/themes/luci-theme-darkmatter package/luci-theme-darkmatter
+svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
 
 # fix nginx-ssl-util error (do not use fallthrough attribute)
 #rm feeds/packages/net/nginx-util/src/nginx-ssl-util.hpp
@@ -646,15 +671,15 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 #cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 
 # replace banner
-cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/banner
+#cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/banner
 
 # boost
 #rm -rf feeds/packages/libs/boost
 #cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
 
 # fix luci-theme-opentomcat dockerman icon missing
-rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
-cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+#rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
+#cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
