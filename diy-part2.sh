@@ -90,7 +90,6 @@ sed -i ​"​s|http.*/library|https://github.com/breakings/OpenWrt/opt/kernel
 ​sed -i ​"​s|s9xxx_lede|ARMv8|g​"​ package/luci-app-amlogic/root/etc/config/amlogic 
 ​#​sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic  
 ​svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash 
-​#​ 编译 po2lmo (如果有po2lmo可跳过) 
 ​​pushd package/luci-app-openclash/tools/po2lmo 
 ​make && sudo make install 
 ​popd 
