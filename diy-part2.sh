@@ -90,12 +90,6 @@ svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartd
 #mosdns
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
 
-#添加udp2raw
-#svn co https://github.com/sensec/openwrt-udp2raw/trunk package/openwrt-udp2raw
-#svn co https://github.com/sensec/luci-app-udp2raw/trunk package/luci-app-udp2raw
-#sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b53657a2a4309f287/" package/openwrt-udp2raw/Makefile
-#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
-
 # 主题
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 svn co https://github.com/jerrykuku/luci-theme-argon/branches/18.06 package/luci-theme-argon
