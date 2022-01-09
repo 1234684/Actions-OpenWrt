@@ -113,13 +113,5 @@ sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/breakings/OpenWrt|g" 
 sed -i "s|http.*/library|https://github.com/breakings/OpenWrt/opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 
-# mac80211
-#rm -rf package/kernel/mac80211
-#svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/mac80211 package/kernel/mac80211
-
-#修复fs.mk
-#rm -rf package/kernel/linux/modules/fs.mk
-#cp $GITHUB_WORKSPACE/fs/fs.mk package/kernel/linux/modules/fs.mk
-
 ./scripts/feeds update -a
 ./scripts/feeds install -a
