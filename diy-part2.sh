@@ -88,7 +88,7 @@ svn co https://github.com/halldong/luci-app-speederv2/trunk package/luci-app-spe
 svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartdns package/luci-app-smartdns
 
 #mosdns
-svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
+#svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
 
 # 主题
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
