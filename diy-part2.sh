@@ -129,12 +129,6 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 # xray-plugin
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.3/g' package/xray-plugin/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=0280e1c7c9c87db13a456be098e42065374066df4108b87c2e1d781337740a73/g' package/xray-plugin/Makefile
-# mbedtls
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.11/g' package/libs/mbedtls/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.12/g' package/libs/mbedtls/Makefile
-#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/g' package/libs/mbedtls/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=c18e7e9abf95e69e425260493720470021384a1728417042060a35d0b7b18b41/g' package/libs/mbedtls/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c59270c357bb9ae4d5c393/g' package/libs/mbedtls/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
