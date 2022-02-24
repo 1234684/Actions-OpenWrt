@@ -15,7 +15,7 @@
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 # 删除软件包
 rm -rf package/lean/luci-app-netdata
-rm -rf package/lean/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/lean/luci-app-pptp-server
 rm -rf feeds/packages/utils/syncthing
 
@@ -91,7 +91,7 @@ svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartd
 
 # 主题
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-svn co https://github.com/jerrykuku/luci-theme-argon/branches/18.06 package/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
