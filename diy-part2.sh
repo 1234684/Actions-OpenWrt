@@ -14,7 +14,6 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 # 删除软件包
-rm -rf package/lean/luci-app-netdata
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/lean/luci-app-pptp-server
 rm -rf feeds/packages/utils/syncthing
@@ -33,7 +32,7 @@ sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
 
 
 #添加额外软件包
-git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
+#git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
 svn co https://github.com/jerrykuku/lua-maxminddb/trunk package/lua-maxminddb
 svn co https://github.com/jerrykuku/luci-app-vssr/trunk package/luci-app-vssr
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
