@@ -82,7 +82,6 @@ git clone https://github.com/semigodking/redsocks.git package/redsocks2
 svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
-svn co https://github.com/halldong/luci-app-speederv2/trunk package/luci-app-speederv2
 
 #添加smartdns
 svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartdns package/luci-app-smartdns
@@ -106,29 +105,6 @@ svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|http.*/library|https://github.com/1234684/Actions-OpenWrt/tree/main/opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
-
-# samba4
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.10/g' feeds/packages/net/samba4/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=107ee862f58062682cec362ec68a24251292805f89aa4c97e7ab80237f91c7af/g' feeds/packages/net/samba4/Makefile
-# ffmpeg
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.1/g' feeds/packages/multimedia/ffmpeg/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02/g' feeds/packages/multimedia/ffmpeg/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0/g' feeds/packages/multimedia/ffmpeg/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=51e919f7d205062c0fd4fae6243a84850391115104ccf1efc451733bc0ac7298/g' feeds/packages/multimedia/ffmpeg/Makefile
-rm -f feeds/packages/multimedia/ffmpeg/patches/030-h264-mips.patch
-# hdparm
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.62/g' feeds/packages/utils/hdparm/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2c0f9d75cdbeda928a25a128cd3d0b7120445ec0910c0b29d4c1038ed1be777f/g' feeds/packages/utils/hdparm/Makefile
-# nginx
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.21.4/g' feeds/packages/net/nginx/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/nginx/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581af31df697551f3bfe/g' feeds/packages/net/nginx/Makefile
-# xray-core
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.3/g' package/xray-core/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=4b8d78cc20bdf2e8936c02b05d22f0a3231075155ffdc67508d8448ab8858252/g' package/xray-core/Makefile
-# xray-plugin
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.3/g' package/xray-plugin/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=0280e1c7c9c87db13a456be098e42065374066df4108b87c2e1d781337740a73/g' package/xray-plugin/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
