@@ -16,6 +16,7 @@ sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generat
 # 删除软件包
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-pptp-server
+rm -rf feeds/luci/applications/luci-app-netdata
 
 # readd cpufreq for aarch64 & Change to system
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/feeds/luci/luci-app-cpufreq/Makefile
@@ -31,7 +32,7 @@ sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
 
 
 #添加额外软件包
-#git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
+git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
 svn co https://github.com/jerrykuku/lua-maxminddb/trunk package/lua-maxminddb
 svn co https://github.com/jerrykuku/luci-app-vssr/trunk package/luci-app-vssr
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
