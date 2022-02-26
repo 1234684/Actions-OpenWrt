@@ -26,7 +26,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 # 修改应用位置
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-openvpn/luasrc/controller/openvpn.lua
-sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/controller/v2ray_server.lua
+sed -i 's/services/vpn/g' package/feeds/luci/luci-app-v2ray-server/luasrc/controller/v2ray_server.lua
 # openssh
 sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
 
