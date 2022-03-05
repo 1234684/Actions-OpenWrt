@@ -102,6 +102,8 @@ svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-the
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
 svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-neobird
 
+cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
+
 # 晶晨宝盒
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|http.*/library|https://github.com/1234684/Actions-OpenWrt/tree/main/opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
