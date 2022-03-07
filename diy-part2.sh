@@ -104,7 +104,7 @@ svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-n
 
 cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
-cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
+# cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 # fix amule
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.3/g' feeds/packages/net/amule/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=102c4cb3dd2858db06fff19c5e2d0b65c6731b366f45df2adcd40fd0cd0fec47/g' feeds/packages/net/amule/Makefile
