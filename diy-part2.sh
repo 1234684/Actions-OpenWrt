@@ -17,6 +17,8 @@ sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generat
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/applications/luci-app-netdata
+rm -rf feeds/packages/multimedia/UnblockNeteaseMusic
+rm -rf feeds/luci/applications/luci-app-unblockmusic
 
 # readd cpufreq for aarch64 & Change to system
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/feeds/luci/luci-app-cpufreq/Makefile
@@ -30,7 +32,7 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-openvpn/luasrc/contro
 sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/model/cbi/openvpn.lua
 sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/openvpn/pageswitch.htm
 # openssh
-sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
+# sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
 
 
 #添加额外软件包
@@ -119,6 +121,7 @@ cp -f $GITHUB_WORKSPACE/general/0003-fix-set_terminate.patch feeds/packages/net/
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|http.*/library|https://github.com/1234684/Actions-OpenWrt/tree/main/opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
-
+# 解锁网易云
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 ./scripts/feeds update -a
 ./scripts/feeds install -a
