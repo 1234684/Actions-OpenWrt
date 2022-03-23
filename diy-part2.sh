@@ -108,11 +108,11 @@ cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch
 cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
 # cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 # fix amule
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.3/g' feeds/packages/net/amule/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=102c4cb3dd2858db06fff19c5e2d0b65c6731b366f45df2adcd40fd0cd0fec47/g' feeds/packages/net/amule/Makefile
-cp -f $GITHUB_WORKSPACE/general/0001-fix-API-mismatch-with-crypto-6.0.0.patch feeds/packages/net/amule/patches
-cp -f $GITHUB_WORKSPACE/general/0002-fix-byte-type-error.patch feeds/packages/net/amule/patches
-cp -f $GITHUB_WORKSPACE/general/0003-fix-set_terminate.patch feeds/packages/net/amule/patches
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.3/g' feeds/packages/net/amule/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=102c4cb3dd2858db06fff19c5e2d0b65c6731b366f45df2adcd40fd0cd0fec47/g' feeds/packages/net/amule/Makefile
+#cp -f $GITHUB_WORKSPACE/general/0001-fix-API-mismatch-with-crypto-6.0.0.patch feeds/packages/net/amule/patches
+#cp -f $GITHUB_WORKSPACE/general/0002-fix-byte-type-error.patch feeds/packages/net/amule/patches
+#cp -f $GITHUB_WORKSPACE/general/0003-fix-set_terminate.patch feeds/packages/net/amule/patches
 
 # fix expat
 # sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.7/g' feeds/packages/libs/expat/Makefile
