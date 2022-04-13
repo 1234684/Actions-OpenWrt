@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt huge
+name: Build OpenWrt mini
 
 on:
   repository_dispatch:
@@ -18,8 +18,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 1 16 * * *
+  #schedule:
+    #- cron: 1 16 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -86,6 +86,12 @@ jobs:
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+        
+    - name: Cache Toolchain
+      uses: klever1988/cachewrtbuild@main
+      with:
+        ccache: 'true'
+        prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
       run: |
@@ -195,12 +201,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Telegram notification
+      uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-      run: |
-        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
-        -d "chat_id=${{ secrets.TELEGRAM_TO }}&text= \
-        %0A编译时间：${{ env.DATE }} \
-        %0AOpenWrt 更新信息：${{ env.useVersionInfo }} \
-        %0A${{ env.PRODUCT_NAME }} 编译完成"
+        message: |
+          编译时间：${{ env.DATE }}
+          更新信息：${{ env.useVersionInfo }}
+          ${{ env.PRODUCT_NAME }} 编译完成
