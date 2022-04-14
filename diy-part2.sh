@@ -56,7 +56,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-passwall package/luci-app-passwall
+#svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-passwall package/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
 
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
@@ -123,8 +124,7 @@ sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Action
 # 解锁网易云
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 # node 
-sed -i "s/PKG_VERSION:=v14.18.3/PKG_VERSION:=v14.19.0/g" feeds/packages/lang/node/Makefile
-sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769d608/PKG_HASH:=e92e846300e6117547d37ea8d5bd32244c19b2fcefcb39e1420a47637f45030c/g" feeds/packages/lang/node/Makefile
-
+sed -i "s/PKG_VERSION:=v14.18.3/PKG_VERSION:=v14.19.1/g" feeds/packages/lang/node/Makefile
+sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769d608/PKG_HASH:=e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9/g" feeds/packages/lang/node/Makefile
 ./scripts/feeds update -a
 ./scripts/feeds install -a
