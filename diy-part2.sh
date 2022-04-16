@@ -57,7 +57,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/tro
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 #svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
 
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
