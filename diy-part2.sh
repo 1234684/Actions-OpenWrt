@@ -79,8 +79,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hyst
 
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
-svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/luci-app-gost
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-gost package/gost
+svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
+svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-gost package/luci-app-gost
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
