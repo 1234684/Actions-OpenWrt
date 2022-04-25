@@ -17,8 +17,8 @@ sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generat
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-pptp-server
 #rm -rf feeds/luci/applications/luci-app-netdata
-rm -rf feeds/packages/multimedia/UnblockNeteaseMusic
-rm -rf feeds/luci/applications/luci-app-unblockmusic
+#rm -rf feeds/packages/multimedia/UnblockNeteaseMusic
+#rm -rf feeds/luci/applications/luci-app-unblockmusic
 
 # readd cpufreq for aarch64 & Change to system
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/feeds/luci/luci-app-cpufreq/Makefile
@@ -125,12 +125,12 @@ svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-n
 # 晶晨宝盒
 sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 # 解锁网易云
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 # node 
-sed -i "s/PKG_VERSION:=v14.18.3/PKG_VERSION:=v14.19.1/g" feeds/packages/lang/node/Makefile
-sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769d608/PKG_HASH:=e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9/g" feeds/packages/lang/node/Makefile
+#sed -i "s/PKG_VERSION:=v14.18.3/PKG_VERSION:=v14.19.1/g" feeds/packages/lang/node/Makefile
+#sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769d608/PKG_HASH:=e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9/g" feeds/packages/lang/node/Makefile
 #tailscale
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.2/g' feeds/packages/net/tailscale/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=3e7b5b8073a7b94d84ff6677a9f110070b808c8d35c5b7da0c6e6fe639444e58/g' feeds/packages/net/tailscale/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.2/g' feeds/packages/net/tailscale/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3e7b5b8073a7b94d84ff6677a9f110070b808c8d35c5b7da0c6e6fe639444e58/g' feeds/packages/net/tailscale/Makefile
 ./scripts/feeds update -a
 ./scripts/feeds install -a
