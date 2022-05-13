@@ -134,5 +134,9 @@ sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Action
 #tailscale
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.2/g' feeds/packages/net/tailscale/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=3e7b5b8073a7b94d84ff6677a9f110070b808c8d35c5b7da0c6e6fe639444e58/g' feeds/packages/net/tailscale/Makefile
+rm -f package/luci-theme-mcat/files/htdocs/fonts/advancedtomato.woff
+rm -f package/luci-theme-tomato/htdocs/luci-static/tomato/fonts/advancedtomato.woff
+cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-mcat/files/htdocs/fonts
+cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-tomato/htdocs/luci-static/tomato/fonts
 ./scripts/feeds update -a
 ./scripts/feeds install -a
