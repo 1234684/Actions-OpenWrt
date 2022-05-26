@@ -80,8 +80,11 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hyst
 
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
-svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-gost package/luci-app-gost
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
+#svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-gost package/luci-app-gost
+
+svn co https://github.com/kiddin9/openwrt-packages/trunk/gost package/gost
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
@@ -95,6 +98,8 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns packa
 
 #mosdns
 #svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
+svn co https://github.com/kiddin9/openwrt-packages/trunk/gowebdav package/gowebdav
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-gowebdav package/luci-app-gowebdav
 
 # 主题
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
@@ -102,13 +107,16 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-th
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-mcat package/luci-theme-mcat
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-tomato package/luci-theme-tomato
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-mcat package/luci-theme-mcat
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-tomato package/luci-theme-tomato
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
 #svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
 #svn co https://github.com/apollo-ng/luci-theme-darkmatter/trunk/luci/themes/luci-theme-darkmatter package/luci-theme-darkmatter
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
 svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-neobird
+svn co https://github.com/haiibo/packages/trunk/luci-theme-opentomato package/luci-theme-opentomato
+svn co https://github.com/haiibo/packages/trunk/luci-theme-opentomcat package/luci-theme-opentomcat
+svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 
 # cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 #cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
