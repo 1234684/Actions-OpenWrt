@@ -130,22 +130,9 @@ svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom packa
 #cp -f $GITHUB_WORKSPACE/general/0002-fix-byte-type-error.patch feeds/packages/net/amule/patches
 #cp -f $GITHUB_WORKSPACE/general/0003-fix-set_terminate.patch feeds/packages/net/amule/patches
 
-# fix expat
-# sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.7/g' feeds/packages/libs/expat/Makefile
-# sed -i 's/PKG_HASH:=.*/PKG_HASH:=9875621085300591f1e64c18fd3da3a0eeca4a74f884b9abac2758ad1bd07a7d/g' feeds/packages/libs/expat/Makefile
+
 # 晶晨宝盒
 sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
-# 解锁网易云
-#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
-# node 
-#sed -i "s/PKG_VERSION:=v14.18.3/PKG_VERSION:=v14.19.1/g" feeds/packages/lang/node/Makefile
-#sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769d608/PKG_HASH:=e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9/g" feeds/packages/lang/node/Makefile
-#tailscale
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.2/g' feeds/packages/net/tailscale/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3e7b5b8073a7b94d84ff6677a9f110070b808c8d35c5b7da0c6e6fe639444e58/g' feeds/packages/net/tailscale/Makefile
-#rm -f package/luci-theme-mcat/files/htdocs/fonts/advancedtomato.woff
-#rm -f package/luci-theme-tomato/htdocs/luci-static/tomato/fonts/advancedtomato.woff
-#cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-mcat/files/htdocs/fonts
-#cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-tomato/htdocs/luci-static/tomato/fonts
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
