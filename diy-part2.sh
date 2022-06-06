@@ -134,18 +134,18 @@ cp -f $GITHUB_WORKSPACE/general/crypto.mk package/kernel/linux/modules
 cp -f $GITHUB_WORKSPACE/general/netsupport.mk package/kernel/linux/modules
 
 # Qt5 -qtbase
-rm -rf feeds/packages/libs/qtbase
-cp -rf $GITHUB_WORKSPACE/general/qtbase feeds/packages/libs
+#rm -rf feeds/packages/libs/qtbase
+#cp -rf $GITHUB_WORKSPACE/general/qtbase feeds/packages/libs
 
 # Qt5 -qttools
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qttools/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=4c5ccf8fdae70f3d4c731419935f456203950f9f4fce325d81b686f05e60b333/g" feeds/packages/libs/qttools/Makefile
-rm -rf feeds/packages/libs/qttools
-cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
+#rm -rf feeds/packages/libs/qttools
+#cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
 # qt6
-cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile.qt6 feeds/packages/net/qBittorrent/Makefile
+#cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile.qt6 feeds/packages/net/qBittorrent/Makefile
 # splite3
-cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
+#cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 
 # 晶晨宝盒
 sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
