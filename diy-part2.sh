@@ -120,10 +120,10 @@ svn co https://github.com/haiibo/packages/trunk/luci-theme-opentomato package/lu
 svn co https://github.com/haiibo/packages/trunk/luci-theme-opentomcat package/luci-theme-opentomcat
 svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 
-# cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
+#cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 #cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
 #cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
-# cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
+#cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 # fix amule
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.3/g' feeds/packages/net/amule/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=102c4cb3dd2858db06fff19c5e2d0b65c6731b366f45df2adcd40fd0cd0fec47/g' feeds/packages/net/amule/Makefile
@@ -131,22 +131,8 @@ svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom packa
 #cp -f $GITHUB_WORKSPACE/general/0002-fix-byte-type-error.patch feeds/packages/net/amule/patches
 #cp -f $GITHUB_WORKSPACE/general/0003-fix-set_terminate.patch feeds/packages/net/amule/patches
 
-cp -f $GITHUB_WORKSPACE/general/crypto.mk package/kernel/linux/modules
-cp -f $GITHUB_WORKSPACE/general/netsupport.mk package/kernel/linux/modules
-
-# Qt5 -qtbase
-#rm -rf feeds/packages/libs/qtbase
-#cp -rf $GITHUB_WORKSPACE/general/qtbase feeds/packages/libs
-
-# Qt5 -qttools
-#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qttools/Makefile
-#sed -i "s/PKG_HASH:=.*/PKG_HASH:=4c5ccf8fdae70f3d4c731419935f456203950f9f4fce325d81b686f05e60b333/g" feeds/packages/libs/qttools/Makefile
-#rm -rf feeds/packages/libs/qttools
-#cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
-# qt6
-#cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile.qt6 feeds/packages/net/qBittorrent/Makefile
-# splite3
-#cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
+#cp -f $GITHUB_WORKSPACE/general/crypto.mk package/kernel/linux/modules
+#cp -f $GITHUB_WORKSPACE/general/netsupport.mk package/kernel/linux/modules
 
 # 晶晨宝盒
 sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
