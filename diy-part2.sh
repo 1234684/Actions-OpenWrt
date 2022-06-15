@@ -131,8 +131,8 @@ svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom packa
 #cp -f $GITHUB_WORKSPACE/general/0002-fix-byte-type-error.patch feeds/packages/net/amule/patches
 #cp -f $GITHUB_WORKSPACE/general/0003-fix-set_terminate.patch feeds/packages/net/amule/patches
 
-cp -f $GITHUB_WORKSPACE/general/crypto.mk package/kernel/linux/modules
-cp -f $GITHUB_WORKSPACE/general/netsupport.mk package/kernel/linux/modules
+#cp -f $GITHUB_WORKSPACE/general/crypto.mk package/kernel/linux/modules
+#cp -f $GITHUB_WORKSPACE/general/netsupport.mk package/kernel/linux/modules
 
 #ssr-plus
 # cp -f $GITHUB_WORKSPACE/general/luci-app-ssr-plus/Makefile package/luci-app-ssr-plus
