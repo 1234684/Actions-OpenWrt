@@ -134,6 +134,8 @@ svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom packa
 #cp -f $GITHUB_WORKSPACE/general/crypto.mk package/kernel/linux/modules
 #cp -f $GITHUB_WORKSPACE/general/netsupport.mk package/kernel/linux/modules
 
+rm -rf feeds/packages/lang/python/python-cryptography
+svn co https://github.com/openwrt/packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
 #ssr-plus
 # cp -f $GITHUB_WORKSPACE/general/luci-app-ssr-plus/Makefile package/luci-app-ssr-plus
 # 晶晨宝盒
