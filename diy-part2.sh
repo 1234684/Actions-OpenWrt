@@ -139,5 +139,7 @@ svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom packa
 # 晶晨宝盒
 sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 
+rm -f package/kernel/mac80211/patches/brcm/999-backport-to-linux-5.18.patch
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
