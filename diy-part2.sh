@@ -79,6 +79,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/s
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core
+svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
 
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
@@ -139,7 +140,7 @@ svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom packa
 # 晶晨宝盒
 sed -i "s|https://github.com/breakings/OpenWrt|https://github.com/1234684/Actions-OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 
-rm -f package/kernel/mac80211/patches/brcm/999-backport-to-linux-5.18.patch
+#rm -f package/kernel/mac80211/patches/brcm/999-backport-to-linux-5.18.patch
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
