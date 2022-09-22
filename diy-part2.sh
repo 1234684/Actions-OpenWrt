@@ -22,16 +22,16 @@ rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/applications/luci-app-unblockmusic
 
 # readd cpufreq for aarch64 & Change to system
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/feeds/luci/luci-app-cpufreq/Makefile
-sed -i 's/services/system/g'  package/feeds/luci/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+#sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/feeds/luci/luci-app-cpufreq/Makefile
+#sed -i 's/services/system/g'  package/feeds/luci/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 # autocore
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 # 修改应用位置
-sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
-sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-openvpn/luasrc/controller/openvpn.lua
+#sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
+#sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-openvpn/luasrc/controller/openvpn.lua
 # sed -i 's/services/vpn/g' package/feeds/luci/luci-app-v2ray-server/luasrc/controller/v2ray_server.lua
-sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/model/cbi/openvpn.lua
-sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/openvpn/pageswitch.htm
+#sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/model/cbi/openvpn.lua
+#sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/openvpn/pageswitch.htm
 # openssh
 # sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
 
