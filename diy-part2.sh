@@ -119,7 +119,7 @@ svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/
 svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-neobird
 svn co https://github.com/haiibo/packages/trunk/luci-theme-opentomato package/luci-theme-opentomato
 svn co https://github.com/haiibo/packages/trunk/luci-theme-opentomcat package/luci-theme-opentomcat
-svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+#svn co https://github.com/haiibo/packages/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 
 #cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 #cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
