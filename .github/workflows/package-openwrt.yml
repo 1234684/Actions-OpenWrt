@@ -4,7 +4,7 @@
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 #========================================================================================================================
 
-name: package openwrt
+name: Use Releases file to Packaging
 
 on:
   repository_dispatch:
@@ -15,25 +15,26 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '45 23 * * *'
+    - cron: '30 22 * * *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8/lede-huge.config
+  CONFIG_FILE: ARMv8/mini.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8
-  PRODUCT_NAME: ARMv8
+  FILE_NAME: armv8_mini
+  PRODUCT_NAME: ARMv8_mini
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id
 
     steps:
     - name: Checkout
@@ -43,9 +44,10 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        docker rmi `docker images -q`
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
+        sudo -E apt-get -qq install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
@@ -68,14 +70,15 @@ jobs:
       if: (!cancelled())
       uses: ophub/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMVIRT: https://github.com/1234684/Actions-OpenWrt/releases/download/openwrt_armvirt/openwrt-armvirt-64-default-rootfs.tar.gz
-        PACKAGE_SOC: s905x3_s905d
+        OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/ARMv8_ROOTFS/openwrt-armvirt-64-generic-rootfs.tar.gz
+        PACKAGE_SOC: s905x3_r66s
         WHOAMI: flippy
         KERNEL_REPO_URL: https://github.com/1234684/Actions-OpenWrt/tree/master/opt/kernel
-        KERNEL_VERSION_NAME: 5.4.174_5.10.94_5.15.25_5.19.1
-        #OPENWRT_VER: R21.12.1
+        KERNEL_VERSION_NAME: 6.6.51
+        #OPENWRT_VER: R23.5.1
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
@@ -92,7 +95,7 @@ jobs:
 
     - name: Upload OpenWrt Firmware to Release
       id: release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@main
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
@@ -103,11 +106,8 @@ jobs:
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
-          - 默认IP：192.168.0.1 默认密码：password (WiFi密码同）
+          - 默认IP：192.168.1.1 默认密码：password (WiFi密码同）
           - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          - 此版因集成插件比自用精简版更多，无法做到每日更新。
-          - 因变动较大，从60或以下版本升级到61或更高版本建议**全新刷入**或者**不保留配置**进行升级。
-          - 常见问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
           ${{ env.useVersionInfo }}
 
     - name: Delete workflow runs
@@ -119,7 +119,7 @@ jobs:
         keep_minimum_runs: 60
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: dev-drprasad/delete-older-releases@v0.3.3
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
@@ -130,10 +130,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Telegram notification
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          打包时间：${{ env.DATE }}
-          ${{ env.PRODUCT_NAME }} 打包完成
+      run: |
+        MSG="
+        打包时间：${{ env.DATE }}
+        OpenWrt 更新信息：${{ env.useVersionInfo }}
+        ${{ env.PRODUCT_NAME }} 打包完成
+        "
+        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_TO }}&text=${MSG}"
