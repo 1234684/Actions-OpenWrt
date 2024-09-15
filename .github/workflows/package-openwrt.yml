@@ -102,7 +102,7 @@ jobs:
         allowUpdates: true
         removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
-        commit: main
+        commit: master
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
