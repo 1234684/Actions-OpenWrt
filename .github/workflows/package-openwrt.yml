@@ -75,7 +75,7 @@ jobs:
         KERNEL_REPO_URL: 1234684/Actions-OpenWrt
         WHOAMI: flippy
         #KERNEL_REPO_URL: https://github.com/1234684/Actions-OpenWrt/releases/download/kernel_stable/6.6.51.tar.gz
-        KERNEL_VERSION_NAME: 6.6.51
+        KERNEL_VERSION_NAME: 6.6.y
         #OPENWRT_VER: R24.09.11
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
