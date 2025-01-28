@@ -46,6 +46,7 @@ rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,sm
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/lang/golang
 merge_package master https://github.com/kenzok8/small package/v2raya v2raya
+merge_package main https://github.com/xiaorouji/openwrt-passwall-packages package/geoview geoview
 
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
