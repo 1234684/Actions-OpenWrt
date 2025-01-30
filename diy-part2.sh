@@ -79,7 +79,8 @@ make && sudo make install
 popd
 
 # 主题
-merge_package master https://github.com/1234684/Actions-OpenWrt package/theme packages/luci-app-argon-config packages/luci-theme-argon packages/luci-theme-opentomcat packages/luci-theme-ifit
+git clone https://github.com/SAENE/luci-theme-design package/theme
+#merge_package master https://github.com/1234684/Actions-OpenWrt package/theme packages/luci-app-argon-config packages/luci-theme-argon packages/luci-theme-opentomcat packages/luci-theme-ifit
 
 #git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
